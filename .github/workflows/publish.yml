@@ -11,7 +11,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build the hello-docker Docker image
+      - name: Build the Docker image
         run: |
               docker-compose build
-              docker push ghcr.io/aifrog/abi23:latest
+              docker push aifrog/abi23:latest
