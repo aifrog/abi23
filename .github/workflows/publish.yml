@@ -13,6 +13,4 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build the hello-docker Docker image
         run: |
-              docker-compose build --tag ghcr.io/aifrog/abi23:latest
-              docker-compose run ghcr.io/aifrog/abi23:latest
-              docker-compose push ghcr.io/aifrog/abi23:latest
+              docker-compose build
