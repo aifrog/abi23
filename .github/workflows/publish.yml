@@ -14,7 +14,6 @@ jobs:
       - name: Build the Docker image
         run: |
           docker-compose build
-          docker run ghcr.io/aifrog/abi23:latest
           docker push ghcr.io/aifrog/abi23:latest
 
 
