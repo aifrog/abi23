@@ -14,3 +14,4 @@ jobs:
       - name: Build the hello-docker Docker image
         run: |
               docker-compose build
+              docker push ghcr.io/aifrog/abi23:latest
