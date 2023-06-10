@@ -30,18 +30,7 @@ npm install bulma moment
 ````
 docker-compose build
 docker-compose up
-
 ````
-
-
-
-
-
-
-
-
-
-
 
 # Deploy to heroku (not working for react)
 
