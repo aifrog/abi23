@@ -43,7 +43,7 @@ docker-compose up
 
 
 
-
+# Deploy to heroku (not working for react)
 
 ````
 heroku login
