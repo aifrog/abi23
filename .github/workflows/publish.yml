@@ -16,4 +16,3 @@ jobs:
           docker-compose build
           docker push ghcr.io/aifrog/abi23:latest
 
-
