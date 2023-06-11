@@ -32,16 +32,14 @@ docker-compose build
 docker-compose up
 ````
 
-# Deploy to heroku (not working for react)
+# Deploy to heroku
 
 ````
 heroku login
-
-npx create-react-app@3.x react-mperle05
-
-cd react-mperle05
-heroku create react-mperle05 --buildpack mars/create-react-app
-heroku stack:set heroku-20
-git push heroku master
+heroku create react-mperle05
+heroku container:push web -a react-mperle05
+heroku container:release web -a react-mperle05
 heroku open
 ````
+
+https://react-mperle05.herokuapp.com/
