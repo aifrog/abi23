@@ -4,6 +4,11 @@ services:
     build: ./frontend
     container_name: "frontend_c"
     ports:
-      - '3000:3000'
+      - 3000:3000
     stdin_open: true
     tty: true
+  backend:
+    build: ./backend
+    container_name: "backend_c"
+    ports:
+      - 8000:8000
