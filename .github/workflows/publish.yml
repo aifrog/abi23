@@ -1,5 +1,8 @@
 name: publish
 on: [push]
+env:
+  HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+  HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
 jobs:
   publish-docker-image:
     runs-on: ubuntu-latest
@@ -20,8 +23,13 @@ jobs:
           docker tag abi23_backend:latest ghcr.io/aifrog/abi23_backend:latest
           docker push ghcr.io/aifrog/abi23_frontend:latest
           docker push ghcr.io/aifrog/abi23_backend:latest
-      - name: Checkout
-        uses: actions/checkout@v2
+      # - name: Push the Docker Image to Heroku Container Registry
+      #   run: | 
+      #     docker tag abi23-frontend  registry.heroku.com/$HEROKU_APP_NAME/web
+      #     docker tag abi23-backend  registry.heroku.com/$HEROKU_APP_NAME/web
+      #     docker push registry.heroku.com/$HEROKU_APP_NAME/web
+      #     heroku container:push web -a $HEROKU_APP_NAME
+      #     heroku container:release web -a $HEROKU_APP_NAME
       - name: Push frontend to Heroku
         uses: gonuit/heroku-docker-deploy@v1.3.3
         with:
