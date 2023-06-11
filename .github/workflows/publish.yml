@@ -25,10 +25,16 @@ jobs:
           docker push ghcr.io/aifrog/abi23_backend:latest
       - name: Push the Docker Image to Heroku Container Registry for the frontend
         run: | 
-          docker tag abi23-frontend  registry.heroku.com/react-mperle05/web
+          docker tag ghcr.io/aifrog/abi23_frontend:latest registry.heroku.com/react-mperle05/web
           docker push registry.heroku.com/react-mperle05/web
           heroku container:push web -a react-mperle05
           heroku container:release web -a react-mperle05
+      - name: Push the Docker Image to Heroku Container Registry for the backend
+        run: | 
+            docker tag ghcr.io/aifrog/abi23_backend:latest  registry.heroku.com/backend-mperle05/web
+            docker push registry.heroku.com/backend-mperle05/web
+            heroku container:push web -a backend-mperle05
+            heroku container:release web -a backend-mperle05
       # - name: Push frontend to Heroku (PROBLEM: NEW BUILD REQUIRED)
       #   uses: gonuit/heroku-docker-deploy@v1.3.3
       #   with:
