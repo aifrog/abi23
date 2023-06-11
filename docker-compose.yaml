@@ -7,4 +7,3 @@ services:
       - '3000:3000'
     stdin_open: true
     tty: true
-image: ghcr.io/aifrog/abi23:latest
