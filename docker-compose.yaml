@@ -2,9 +2,9 @@ version: "3.8"
 services:
   frontend:
     build: ./frontend
-    image: ghcr.io/aifrog/abi23:latest
     container_name: "frontend_c"
     ports:
       - '3000:3000'
     stdin_open: true
     tty: true
+  image: ghcr.io/aifrog/abi23:latest
