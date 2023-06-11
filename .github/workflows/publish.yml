@@ -30,23 +30,23 @@ jobs:
           heroku create react-mperle05
           heroku container:push web -a react-mperle05
           heroku container:release web -a react-mperle05
-      - name: Push the Docker Image to Heroku Container Registry for the backend
-        run: | 
-            docker tag ghcr.io/aifrog/abi23_backend:latest  registry.heroku.com/backend-mperle05/web
-            docker push registry.heroku.com/backend-mperle05/web
-            heroku create backend-mperle05
-            heroku container:push web -a backend-mperle05
-            heroku container:release web -a backend-mperle05
-      # - name: Push frontend to Heroku (PROBLEM: NEW BUILD REQUIRED)
-      #   uses: gonuit/heroku-docker-deploy@v1.3.3
-      #   with:
-      #     email: ${{ secrets.HEROKU_EMAIL }}
-      #     heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-      #     heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
-      #     dockerfile_directory: ./frontend
-      #     dockerfile_name: Dockerfile
-      #     docker_options: "--no-cache"
-      #     process_type: web
+      # - name: Push the Docker Image to Heroku Container Registry for the backend
+      #   run: | 
+      #       docker tag ghcr.io/aifrog/abi23_backend:latest  registry.heroku.com/backend-mperle05/web
+      #       docker push registry.heroku.com/backend-mperle05/web
+      #       heroku create backend-mperle05
+      #       heroku container:push web -a backend-mperle05
+      #       heroku container:release web -a backend-mperle05
+      - name: Push frontend to Heroku (PROBLEM: NEW BUILD REQUIRED)
+        uses: gonuit/heroku-docker-deploy@v1.3.3
+        with:
+          email: ${{ secrets.HEROKU_EMAIL }}
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          dockerfile_directory: ./frontend
+          dockerfile_name: Dockerfile
+          docker_options: "--no-cache"
+          process_type: web
           
 
 
